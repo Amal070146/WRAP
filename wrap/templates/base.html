@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/basewrap.css" />
+    <link rel="stylesheet" href="../static/css/settings.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="../static/images/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js"
+      defer
+    ></script>
+    <title>WRAP</title>
+  </head>
+  <body>
+    <div class="base-class">
+      <div class="sidenavwrapper">
+        <div class="logo ml-6">
+          <a href="/home">
+            <img src="../static/images/WRAP-yellow-logo.svg" alt=""
+          /></a>
+        </div>
+        <div class="side-nav-button-wrapper">
+          <div class="side-nav-buttons">
+            <button>
+              <a href="/dashboard">
+                <img
+                  class="side-nav-logo w-6 ml-1"
+                  src="../static/images/Dashboard-nav.svg"
+                  alt=""
+                />
+                Dashboard</a
+              >
+            </button>
+            <button>
+              <a href="/bookings">
+                <img
+                  class="side-nav-logo"
+                  src="../static/images/Booking-nav.svg"
+                  alt=""
+                />
+                Bookings
+              </a>
+            </button>
+            <button>
+              <a href="/rewards">
+                <img
+                  class="side-nav-logo"
+                  src="../static/images/Rewards-nav.svg"
+                  alt=""
+                />
+                Rewards
+              </a>
+            </button>
+            <button>
+              <a href="/news">
+                <img
+                  class="side-nav-logo"
+                  src="../static/images/News-nav.svg"
+                  alt=""
+                />
+                News
+              </a>
+            </button>
+            <button>
+              <a href="/redeem">
+                <img
+                  class="side-nav-logo"
+                  src="../static/images/Redeem-nav.svg"
+                  alt=""
+                />
+                Redeem</a
+              >
+            </button>
+          </div>
+          <div class="side-nav-buttons">
+            <button>
+              <a href="/notifications">
+                <img
+                  class="side-nav-logo"
+                  src="../static/images/Notification-nav.svg"
+                  alt=""
+                />
+                Notifications</a
+              >
+            </button>
+            <button>
+              <a href="/support">
+                <img
+                  class="side-nav-logo"
+                  src="../static/images/Support-nav.svg"
+                  alt=""
+                />
+                Support</a
+              >
+            </button>
+            <button>
+              <a href="/settings">
+                <img
+                  class="side-nav-logo"
+                  src="../static/images/Settings.svg"
+                  alt=""
+                />
+                Settings</a
+              >
+            </button>
+            <button>
+              <a href="/logout">
+                <img
+                  class="side-nav-logo logout-style"
+                  src="../static/images/Logout-nav.svg"
+                  alt=""
+                />
+                Logout</a
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="homepagecontentwrapper">
+        <div class="top-nav-bar">
+          <div class="topnavbartitlewrapper">
+            <h1>{% block title %} {% endblock %}</h1>
+          </div>
+          <div class="topnavbarsearchwrapper w-80">
+            <div class="flex justify-center w-80 items-center">
+              <input
+                class="absolute mr-0 w-80"
+                type="text"
+                placeholder="Search"
+              />
+              <img
+                class="relative ml-64"
+                src="../static/images/search-icon.png"
+                alt=""
+              />
+            </div>
+            <button>
+              <a href="/track">
+                <img
+                  class="side-nav-logo-top-nav"
+                  src="../static/images/Location-icon.svg"
+                  alt=""
+              /></a>
+            </button>
+          </div>
+          <div class="topnavbarprofilebuttonwrapper mr-[90px]">
+            <a href="/profile">
+              <div>
+                <img
+                  class="side-nav-logo profile-top-img"
+                  src="../static/images/profile-user.png"
+                  alt=""
+                />
+              </div>
+              <div>
+                <p>{{ user.username|default:'Guest' }}</p>
+                <p>@{{ user.username|default:'Guest' }}</p>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="dynamiccontentwrapper">
+          {% block content %} {% endblock %}
+        </div>
+      </div>
+    </div>
+    {% block script %} {% endblock %}
+  </body>
+</html>
